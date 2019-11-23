@@ -4,7 +4,7 @@
 
 <h3 align="center" style="font-weight:600">
 
-`stylehooks`
+`react-native-stylehooks`
 
 </h3>
 
@@ -24,14 +24,14 @@
 
 ## Getting Started
 
-- Run `yarn add stylehooks` in your React Native [Web] app
+- Run `yarn add react-native-stylehooks` in your React Native [Web] app
 - Use it similarly to the example shown below
 
 ```jsx
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { View, Text } from 'react-native';
-import * as Stylehooks from 'stylehooks';
+import * as Stylehooks from 'react-native-stylehooks';
 
 function App() {
   const styles = useStyles();
