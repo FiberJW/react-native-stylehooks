@@ -23,6 +23,11 @@
       "pre-commit": "tsdx lint"
     }
   },
+  "homepage": "https://github.com/FiberJW/react-native-stylehooks",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FiberJW/react-native-stylehooks"
+  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
