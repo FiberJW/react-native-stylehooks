@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import mapValues from 'lodash/mapValues';
 
-type FunctionalStyles<T> = {
+export type FunctionalStyles<T> = {
   [P in keyof T]: ({
     window,
     screen,
@@ -58,3 +58,9 @@ export function create<T extends FunctionalStyles<T>>(
     return compiledStyles;
   };
 }
+
+export const Stylehooks = {
+  create,
+};
+
+export default Stylehooks;

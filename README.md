@@ -31,7 +31,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { View, Text } from 'react-native';
-import * as Stylehooks from 'react-native-stylehooks';
+import { Stylehooks } from 'react-native-stylehooks';
 
 function App() {
   const styles = useStyles();
@@ -56,10 +56,12 @@ const useStyles = Stylehooks.create({
       height: '100vh',
       alignItems: 'center',
       backgroundColor: width <= breakpoints.tablet ? '#4630eb' : '#000020',
+      borderColor: width <= breakpoints.mobile ? '#decd50' : '#93d9de',
+      borderWidth: 8,
     };
   },
-  text: ({ window: { width } }) => {
-    return { color: 'white', fontSize: width <= breakpoints.mobile ? 32 : 24 };
+  text: _ => {
+    return { color: 'white', fontSize: 32 };
   },
 });
 
