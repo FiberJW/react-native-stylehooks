@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import {
-  StyleSheet,
+  StyleSheet as RNStyleSheet,
   ViewStyle,
   TextStyle,
   Dimensions,
@@ -9,19 +9,21 @@ import {
 } from 'react-native';
 import mapValues from 'lodash/mapValues';
 
-export type FunctionalStyles<T> = {
-  [P in keyof T]: ({
-    window,
-    screen,
-  }: {
-    window: ScaledSize;
-    screen: ScaledSize;
-  }) => ViewStyle | TextStyle | ImageStyle;
+export type FunctionalStyleProperty = ({
+  window,
+  screen,
+}: {
+  window: ScaledSize;
+  screen: ScaledSize;
+}) => ViewStyle | TextStyle | ImageStyle;
+
+export type FunctionalStyleObject<T> = {
+  [P in keyof T]: FunctionalStyleProperty;
 };
 
-export function create<T extends FunctionalStyles<T>>(
-  styles: T | FunctionalStyles<T>
-): () => StyleSheet.NamedStyles<T> {
+export function create<T extends FunctionalStyleObject<T>>(
+  styles: T | FunctionalStyleObject<T>
+): () => RNStyleSheet.NamedStyles<T> {
   return function useStyles() {
     const [dimensions, setDimensions] = useState({
       window: Dimensions.get('window'),
@@ -47,8 +49,8 @@ export function create<T extends FunctionalStyles<T>>(
 
     const compiledStyles = useMemo(
       () =>
-        StyleSheet.create(
-          mapValues(styles, function(s) {
+        RNStyleSheet.create(
+          mapValues(styles, function(s: FunctionalStyleProperty) {
             return s(dimensions);
           })
         ),
@@ -59,8 +61,6 @@ export function create<T extends FunctionalStyles<T>>(
   };
 }
 
-export const Stylehooks = {
+export const StyleSheet = {
   create,
 };
-
-export default Stylehooks;

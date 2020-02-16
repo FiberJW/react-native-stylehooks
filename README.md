@@ -31,7 +31,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { View, Text } from 'react-native';
-import { Stylehooks } from 'react-native-stylehooks';
+import { StyleSheet } from 'react-native-stylehooks';
 
 function App() {
   const styles = useStyles();
@@ -48,7 +48,7 @@ const breakpoints = {
   mobile: 400,
 };
 
-const useStyles = Stylehooks.create({
+const useStyles = StyleSheet.create({
   container: ({ window: { width } }) => {
     return {
       flex: 1,

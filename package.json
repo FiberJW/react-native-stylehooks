@@ -1,6 +1,6 @@
 {
   "name": "react-native-stylehooks",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "Juwan Wheatley",
   "main": "dist/index.js",
@@ -11,17 +11,10 @@
   ],
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --env=jsdom --passWithNoTests",
-    "lint": "tsdx lint"
+    "build": "tsdx build"
   },
   "peerDependencies": {
     "react": ">=16"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
   },
   "homepage": "https://github.com/FiberJW/react-native-stylehooks",
   "repository": {
